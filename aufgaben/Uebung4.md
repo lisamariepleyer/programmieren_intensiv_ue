@@ -72,10 +72,11 @@ Aufgabenstellung:
 Beispiel-Ausgabe:
 ```
 Was möchten Sie tun?
-1 - Neues ToDo hinzufügen
-2 - Alle ToDos anzeigen
-3 - Ein ToDo als erledigt markieren
-4 - Beenden
+1 - Alle ToDos anzeigen
+2 - Neues ToDo hinzufügen
+3 - ToDo als erledigt markieren
+4 - ToDos speichern und beenden
+0 - Beenden
 ```
 
 ### Schritt 6: Hauptlogik
