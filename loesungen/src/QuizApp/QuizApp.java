@@ -19,9 +19,7 @@ public class QuizApp {
         int numberOfQuestions = 0;
         int numberOfCorrectQuestions = 0;
 
-        boolean isPlaying = true;
-
-        while (isPlaying) {
+        while (true) {
             String response = getQuestion(level);
             if (response == null) {
                 System.out.println("Couldn't fetch new question ...");
@@ -105,9 +103,7 @@ public class QuizApp {
             incorrectAnswers[i] = decodeHTML(removeQuotes(incorrectAnswers[i]));
         }
 
-        Question f = new Question(question, correctAnswer, incorrectAnswers);
-
-        return f;
+        return new Question(question, correctAnswer, incorrectAnswers);
     }
 
     public static String extractKey(String response, String key, String valueEnd) {

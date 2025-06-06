@@ -35,7 +35,7 @@ public class Question {
     }
 
     public boolean isGuessCorrect(int userGuess) {
-        return this.shuffledAnswers[userGuess] == this.correctAnswer;
+        return this.shuffledAnswers[userGuess].equals(this.correctAnswer);
     }
 
     public String getCorrectAnswer() {
