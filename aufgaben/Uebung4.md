@@ -1,5 +1,4 @@
 # Todo App
-__Übung am 23.05.2025__
 
 Diese Aufgabe begleitet Sie bei der Entwicklung einer einfachen ToDo-Listen-Anwendung in Java. Ziel ist es, mit eigenen Klassen, Benutzereingaben, Sammlungen wie ArrayList, sowie Datei-Ein-/Ausgabe (File I/O) zu arbeiten.
 

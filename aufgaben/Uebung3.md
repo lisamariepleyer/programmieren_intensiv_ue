@@ -1,5 +1,4 @@
 # Tic-Tac-Toe
-__Übung am 09.05.2025__
 
 Diese Aufgabe begleitet Sie bei der Entwicklung eines einfachen Tic-Tac-Toe-Spiels in Java. Ziel ist es, grundlegende Konzepte wie Arrays, Methoden, Schleifen, Bedingungen und erste Ansätze von Spiellogik kennenzulernen und praktisch anzuwenden.
 

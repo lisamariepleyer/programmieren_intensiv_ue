@@ -1,5 +1,4 @@
 # Taschenrechner-Applikation
-__Übung am 11.04.2025__
 
 Diese Aufgabe begleitet Sie Schritt für Schritt durch die Entwicklung eines einfachen Taschenrechners in Java. Ziel ist es, grundlegende Konzepte der Programmierung zu erlernen und systematisch anzuwenden: Benutzereingabe, Rechenoperationen, Bedingungen, Methoden, Schleifen und ein kurzer Exkurs in objektorientierte Strukturen.
 

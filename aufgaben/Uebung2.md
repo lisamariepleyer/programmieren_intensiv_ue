@@ -1,5 +1,4 @@
 # Don't Melt The Snowman
-__Übung am 25.04.2025__
 
 Lernziele: Anwendung grundlegender Java-Konzepte, Arrays, saubere Code-Strukturierung.
 

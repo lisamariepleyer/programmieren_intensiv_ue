@@ -1,5 +1,4 @@
 # Quiz App
-__Übung am 06.06.2025__
 
 Diese Aufgabe begleitet Sie bei der Entwicklung einer einfachen Quiz-Anwendung in Java. Ziel ist es, grundlegende Konzepte wie Methoden, Bedingungen, Listen und den Umgang mit einfachen HTTP-Anfragen und JSON-ähnlichem Text (ohne externe Bibliotheken) kennenzulernen und praktisch anzuwenden. Hierfür werden Sie die [Open Trivia DB](https://opentdb.com) verwenden, eine frei zugängliche API, die Quizfragen zu verschiedenen Kategorien und Schwierigkeitsstufen im JSON-Format bereitstellt.
 
