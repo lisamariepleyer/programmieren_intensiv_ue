@@ -49,7 +49,8 @@ Geratene Buchstaben: a b
 
 Rate einen Buchstaben: a
 Diesen Buchstaben hast du schon geraten!
-Geratene Buchstaben: a b  Rate einen Buchstaben: -
+Geratene Buchstaben: a b
+Rate einen Buchstaben: -
 Das ist kein gültiger Buchstabe!
 Geratene Buchstaben: a b
 
