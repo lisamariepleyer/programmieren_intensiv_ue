@@ -14,8 +14,10 @@ Aufgabenstellung:
 Lernziel: Arbeiten mit 2D-Arrays und erste einfache Methoden.
 
 Aufgabenstellung:
-* Legen Sie ein 2D-Array `char[][] spielfeld` der Größe 3x3 an.
-* Füllen Sie alle Felder zu Beginn mit einem Leerzeichen `' '`.
+* Schreiben Sie eine Methode `initialisiereSpielfeld()`.
+  * Legen Sie ein 2D-Array `char[][] spielfeld` der Größe 3x3 an.
+  * Füllen Sie alle Felder zu Beginn mit einem Leerzeichen `' '`.
+  * Überlegen Sie, welchen Klassen- bzw. Instanzvariablen dafür nützlich sein könnten.
 * Schreiben Sie eine Methode `zeigeSpielfeld()`, die das Spielfeld formatiert auf der Konsole ausgibt.
 
 Beispiel-Ausgabe:
@@ -70,7 +72,7 @@ Schreiben Sie eine Hauptmethode `spieleSpiel()`, die folgendes tut:
 Ziel: Methoden erweitern und Wiederverwendung.
 
 Aufgabenstellung:
-* Schreiben Sie eine Methode `initialisiereSpielfeld(), um das Spielfeld zurückzusetzen.
+* Nutzen Sie die Methode `initialisiereSpielfeld()`, um das Spielfeld zurückzusetzen.
 * Fragen Sie den Benutzer am Spielende, ob er ein neues Spiel starten möchte und starten Sie gegebenenfalls ein neues Spiel.
 
 ### Schritt 8: Erweiterungsideen

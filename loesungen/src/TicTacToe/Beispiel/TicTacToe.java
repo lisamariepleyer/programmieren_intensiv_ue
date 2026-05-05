@@ -6,6 +6,7 @@ public class TicTacToe {
     private static final int SPIELFELD_GROESSE = 3;
     private static char[] symbole = {'x', 'o'};
     private static char leeresSymbol = ' ';
+    private static char[][] spielfeld;
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -39,7 +40,7 @@ public class TicTacToe {
         return false;
     }
 
-    public static void zeigeSpielfeld(char[][] spielfeld) {
+    public static void zeigeSpielfeld() {
         System.out.println("  0   1   2");
 
         for (int i = 0; i < SPIELFELD_GROESSE; i++) {
@@ -55,15 +56,15 @@ public class TicTacToe {
         }
     }
 
-    public static void spielerZug(char symbol, char[][] spielfeld) {
+    public static void spielerZug(char symbol) {
         boolean hatSymbolGesetzt = false;
 
         while (!hatSymbolGesetzt) {
-            hatSymbolGesetzt = setzeSymbol(symbol, spielfeld);
+            hatSymbolGesetzt = setzeSymbol(symbol);
         }
     }
 
-    public static boolean setzeSymbol(char symbol, char[][] spielfeld) {
+    public static boolean setzeSymbol(char symbol) {
         System.out.println("Wo möchten Sie ein '" + symbol + "' setzen?");
 
         System.out.print("Zeile: ");
@@ -80,7 +81,7 @@ public class TicTacToe {
         }
     }
 
-    public static boolean pruefeGewinner(char symbol, char[][] spielfeld) {
+    public static boolean pruefeGewinner(char symbol) {
         for (int i = 0; i < SPIELFELD_GROESSE; i++) {
             if (
                     (spielfeld[i][0] == symbol && spielfeld[i][1] == symbol && spielfeld[i][2] == symbol)
@@ -100,7 +101,7 @@ public class TicTacToe {
         return false;
     }
 
-    public static boolean pruefeUnentschieden(char[][] spielfeld) {
+    public static boolean pruefeUnentschieden() {
         for (int i = 0; i < SPIELFELD_GROESSE; i++) {
             for (int j = 0; j < SPIELFELD_GROESSE; j++) {
                 if (spielfeld[i][j] == leeresSymbol) {
@@ -112,22 +113,22 @@ public class TicTacToe {
     }
 
     public static void spieleSpiel() {
-        char[][] spielfeld = initialisiereSpielfeld();
+        initialisiereSpielfeld();
         boolean spielLaeuft = true;
 
         while(spielLaeuft) {
             for (char symbol : symbole) {
-                zeigeSpielfeld(spielfeld);
-                spielerZug(symbol, spielfeld);
+                zeigeSpielfeld();
+                spielerZug(symbol);
 
-                boolean gewonnen = pruefeGewinner(symbol, spielfeld);
+                boolean gewonnen = pruefeGewinner(symbol);
                 if (gewonnen) {
                     System.out.println(symbol + " hat gewonnen!");
                     spielLaeuft = false;
                     break;
                 }
 
-                boolean unentschieden = pruefeUnentschieden(spielfeld);
+                boolean unentschieden = pruefeUnentschieden();
                 if (unentschieden) {
                     System.out.println("unentschieden!");
                     spielLaeuft = false;
@@ -136,19 +137,17 @@ public class TicTacToe {
             }
         }
 
-        zeigeSpielfeld(spielfeld);
+        zeigeSpielfeld();
     }
 
-    public static char[][] initialisiereSpielfeld() {
-        char[][] spielfeld = new char[SPIELFELD_GROESSE][SPIELFELD_GROESSE];
+    public static void initialisiereSpielfeld() {
+        spielfeld = new char[SPIELFELD_GROESSE][SPIELFELD_GROESSE];
 
         for (int i = 0; i < SPIELFELD_GROESSE; i++) {
             for (int j = 0; j < SPIELFELD_GROESSE; j++) {
                 spielfeld[i][j] = leeresSymbol;
             }
         }
-
-        return spielfeld;
     }
 
 }
