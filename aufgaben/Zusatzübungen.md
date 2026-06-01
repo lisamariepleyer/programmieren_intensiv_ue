@@ -82,7 +82,55 @@ Erweiterung:
 * Mehrere Würfe hintereinander (z.B. alle 20 Sekunden)
 * Zwei Würfel gleichzeitig
 
+### ⭐ Kristallkugel-Simulator
+Schreibe ein Programm, das eine magische Kristallkugel simuliert.
+Zunächst soll der Benutzer eine Ja-/Nein-Frage eingeben. 
+Anschließend erzeugt das Programm eine Zufallszahl zwischen 0 und 4. 
+Mithilfe eines switch-Statements wird abhängig von dieser Zufallszahl eine Antwort ausgewählt und ausgegeben.
+
+Mögliche Antworten:
+* „Ja, ganz bestimmt.“
+* „Die Chancen stehen gut.“
+* „Die Zukunft ist unklar.“
+* „Eher nicht.“
+* „Auf keinen Fall.“
+
+Was du übst:
+* Zufallszahlen (Klasse `Random`)
+* `switch`-Statements
+
+```
+Stelle eine Ja-/Nein-Frage:
+Werde ich die Prüfung bestehen?
+
+🔮 Die Kristallkugel sagt:
+Die Chancen stehen gut.
+```
+
 ## Mittelschwere Aufgaben
+
+### ⭐⭐ Generationen-Rechner
+Schreibe ein Programm, das den Namen und das Geburtsjahr einer Person einliest. 
+Basierend auf dem Geburtsjahr soll anschließend die Generation ausgegeben werden, der die Person angehört.
+
+Verwende folgende Einteilung:
+* Ab 2013: Generation Alpha
+* 1997 bis 2012: Generation Z
+* 1981 bis 1996: Millennials
+* 1965 bis 1980: Generation X
+* 1946 bis 1964: Baby Boomer
+* Vor 1946: Silent Generation
+
+Was du übst:
+* Zahlenvergleiche 
+* if-else if-else-Strukturen
+
+```
+Name: Lisa
+Geburtsjahr: 1996
+
+Lisa gehört zu: Millennials.
+```
 
 ### ⭐⭐ Zahlenratespiel
 Das Programm errechnet eine zufällige Zahl und der Benutzer muss sie erraten.
@@ -132,7 +180,78 @@ Gib ein Wort ein: Haus
 keine Palindrom
 ```
 
+### ⭐⭐ Multiplikationstabelle
+Schreibe ein Programm, das eine Multiplikationstabelle für die Zahlen von 1 bis 10 ausgibt.
+Alle Ergebnisse, die durch 6 teilbar sind, sollen jedoch nicht als Zahl, sondern als '#' ausgegeben werden.
+Achte darauf, dass die Zahlen genau übereinander stehen.
+
+Was du übst:
+* Verschachtelte Schleifen
+* Modulo-Operator (%)
+* Formatierte Ausgaben
+
+```
+1   2   3   4   5   #   7   8   9   10
+2   4   #   8   10  #   14  16  #   20
+```
+
+### ⭐⭐ Quidditch Spielerin
+Schreibe ein Programm, welches eine Spielerin anhand ihrer Fähigkeiten einer Quidditch-Position zuordnet.
+
+Eingaben:
+* Reaktionsfähigkeit
+* Teamgeist
+* Zielgenauigkeit
+
+Regeln:
+* Reaktionsfähigkeit > 15 → Sucher
+* Zielgenauigkeit > 15 und Teamgeist > 10 → Jäger
+* Teamgeist mindestens 15 → Treiber
+* Andernfalls → Hüter
+
+Was du übst:
+* Vergleichsoperatoren (>, <, >=)
+* Logische Operatoren (&&, ||, !)
+* Komplexere Bedingungen
+
+```
+Reaktionsfähigkeit: 15
+Teamgeist: 15
+Zielgenauigkeit: 14
+
+Position: Treiber
+```
+
 ## Fortgeschrittene Aufgaben
+
+### ⭐⭐⭐ Sitzplan für ein Kino
+Verwalte die Sitzplätze eines kleinen Kinos mit einem zweidimensionalen Array (`boolean[][]`).
+
+Ein Platz kann:
+* `true` = reserviert
+* `false` = frei
+
+Das Programm soll:
+* Einen Platz reservieren können.
+* Den Sitzplan anzeigen.
+* Alle freien Plätze zählen.
+* Alle reservierten Plätze zählen.
+* Den Auslastungsgrad in Prozent berechnen.
+
+Was du übst:
+* Zweidimensionale Arrays
+* Bedingungen
+* Zählen und Auswerten von Daten
+
+```
+F F R F
+R F F F
+F F R R
+```
+
+Mögliche Erweiterungen:
+* Stornierung einer Reservierung
+* Prüfung, ob eine bestimmte Menge an nebeneinanderliegenden Plätzen frei ist
 
 ### ⭐⭐⭐ Bibliotheksverwaltung
 Simuliere ein einfaches System zur Verwaltung von Büchern.
