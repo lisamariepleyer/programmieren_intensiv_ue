@@ -1,6 +1,11 @@
 # Quiz App
 
-Diese Aufgabe begleitet Sie bei der Entwicklung einer einfachen Quiz-Anwendung in Java. Ziel ist es, grundlegende Konzepte wie Methoden, Bedingungen, Listen und den Umgang mit einfachen HTTP-Anfragen und JSON-ähnlichem Text (ohne externe Bibliotheken) kennenzulernen und praktisch anzuwenden. Hierfür werden Sie die [Open Trivia DB](https://opentdb.com) verwenden, eine frei zugängliche API, die Quizfragen zu verschiedenen Kategorien und Schwierigkeitsstufen im JSON-Format bereitstellt.
+Diese Aufgabe begleitet Sie bei der Entwicklung einer einfachen Quiz-Anwendung in Java.
+Dabei lernen Sie, wie mehrere Klassen zusammenarbeiten, wie Objekte erstellt und wie Methoden genutzt werden, um die Logik eines Programms zu strukturieren.
+Zusätzlich lernen Sie den Umgang mit einfachen HTTP-Anfragen und JSON-ähnlichem Text (ohne externe Bibliotheken) kennen.
+Hierfür werden Sie die [Open Trivia DB](https://opentdb.com) verwenden, eine frei zugängliche API, die Quizfragen zu verschiedenen Kategorien und Schwierigkeitsstufen im JSON-Format bereitstellt.
+
+Die Klassen `OpenTriviaDBHandler` und `UserInputHandler` werden von der Lehrveranstaltung bereitgestellt. Sie müssen deren Code nicht verändern. Kopieren Sie die Klassen aus dem bereitgestellten GitHub-Repository in Ihr Projekt.
 
 ### Schritt 1: Aufsetzen einer Hauptklasse
 Lernziel: Verständnis und Entwicklung eines strukturierten und übersichtlichen Projektes.
@@ -8,76 +13,81 @@ Lernziel: Verständnis und Entwicklung eines strukturierten und übersichtlichen
 Aufgabenstellung:
 * Erstellen Sie eine Hauptklasse `QuizApp`.
 * Erstellen Sie eine `main()` Methode.
-* Erstellen Sie ein geeignetes Codegerüst für die Hauptklasse, welches auf den nächsten Schritten basiert. Verwenden Sie dafür Method Stubs.
 
-### Schritt 2: Abrufen einer Frage von der Open Trivia DB
-Lernziel: Grundlagen von HTTP-Requests.
+### Schritt 2: Aufsetzen einer Quiz Klasse
+Lernziel: Attribute und Konstruktoren verwenden.
 
-Aufgabenstellung:
-* Verwenden Sie `HttpClient` und `HttpRequest`, um den folgenden Link aufzurufen: https://opentdb.com/api.php?amount=1&type=multiple
-* Schreiben Sie eine Methode `getQuestion()`, die die Anfrage ausführt und den JSON-Text (als `String`) zurückgibt.
-* Behandeln Sie mögliche Fehler mit einem `try-catch` Block.
+* Erstellen Sie eine Klasse `Quiz`.
+* Die Klasse soll folgende Informationen speichern:
+  * Anzahl der gespielten Fragen
+  * Anzahl der richtigen Antworten
+  * ob das Spiel beendet wurde
+  * Schwierigkeitsgrad des Quizzes
+* Erstellen Sie einen Konstruktor:
+  * Setzen Sie die Zähler auf `0`.
+  * Lassen Sie den Benutzer mit `UserInputHandler.chooseDifficultyLevel()` einen Schwierigkeitsgrad auswählen.
+* Schreiben Sie außerdem passende Getter-Methoden für die benötigten Attribute.
 
-### Schritt 3: Verarbeiten des JSON-Textes
-Lernziel: Verarbeitung von Zeichenketten.
+### Schritt 3: Die Klasse Question erstellen
+Lernziel: Objekte verwenden, um zusammengehörige Daten zu speichern.
 
-Aufgabenstellung:
-* Schreiben Sie eine Methode `parseResponse(String response)`, welche Teilstrings aus dem JSON extrahiert.
-* Extrahieren Sie damit:
-  * Die Frage (`question`)
-  * Die richtige Antwort (`correct_answer`)
-  * Die falschen Antworten (`incorrect_answers`) als Textblock, den Sie mit `split(",")` aufteilen
-* Entfernen Sie unnötige Anführungszeichen mit einer Methode `removeQuotes(...)`.
+* Erstellen Sie eine Klasse `Question`.
+* Diese soll folgende Attribute speichern:
+  * die Frage selbst
+  * die richtige Antwort
+  * eine Liste von falschen Antworten
+  * eine Liste an zufällig gemischten Antworten
+* Legen Sie einen Konstruktor an, der alle benötigten Daten übernimmt.
 
-### Schritt 4: Frage anzeigen und Antwortmöglichkeiten mischen
-Ziel: Arbeiten mit Listen und Zufallselementen.
-
-Aufgabenstellung:
-* Erstellen Sie eine Klasse `Question` mit folgenden Attributen, die im Konstruktor gesetzt werden:
-  * `String question`
-  * `String correctAnswer`
-  * `String[] incorrectAnswers`
-  * `String[] shuffledAnswers`
-* Schreiben Sie eine Methode `shuffleAnswer(...)`, welche die Antworten mischt:
-  * Fügen Sie die richtige und falschen Antworten in eine `ArrayList<String>` ein.
-  * Mischen Sie die Antwortmöglichkeiten mit `Collections.shuffle(...)`.
-* Erstellen Sie eine neue Instanz der Klasse `Question` nachdem Sie die Response verarbeitet haben.
-* Schreiben Sie eine Methode `showQuestion()`, die die Frage und alle durchmischten Antwortmöglichkeiten nummeriert in der Konsole ausgibt.
-
-### Schritt 5: Antwort vom Benutzer einlesen und auswerten
-Ziel: Einfache Benutzereingaben und Bedingungen.
+### Schritt 4: Antworten mischen und anzeigen
+Lernziel: Arbeiten mit Arrays, Listen und Methoden.
 
 Aufgabenstellung:
-* Lassen Sie den Benutzer eine Antwortoption (z.B. 1–4) auswählen.
-* Vergleichen Sie die Antwort mit der richtigen Lösung.
-* Geben Sie eine passende Rückmeldung aus.
+* Implementieren Sie in der Klasse `Question` eine Methode zum Mischen der Antworten.
+  * Fügen Sie die richtige Antwort und alle falschen Antworten in eine `ArrayList<String>` ein.
+  * Verwenden Sie `Collections.shuffle()`, um die Reihenfolge zufällig zu verändern.
+  * Speichern Sie die gemischten Antworten.
+* Schreiben Sie anschließend eine Methode `showQuestion()`, welche die Frage und alle zufällig gemischten Antwortmöglichkeiten nummeriert ausgibt.
 
 Beispiel-Ausgabe:
 ```
-In web design, what does CSS stand for?
-1) Cascading Style Sheet
-2) Counter Strike: Source
-3) Corrective Style Sheet
-4) Computer Style Sheet
+What is the capital of Austria? 
+1) Graz 
+2) Salzburg 
+3) Vienna 
+4) Linz
+```
 
-Which answer is correct?
-> 1
-Correct!
+### Schritt 5: Eine Spielrunde implementieren
+Lernziel: Methoden zur Strukturierung von Programmabläufen verwenden.
+
+Aufgabenstellung:
+Implementieren Sie in der Klasse `Quiz` eine Methode `playRound()`. Diese kann in weitere Methoden unterteilt werden und soll:
+1. Eine neue Frage über `OpenTriviaDBHandler.getQuestion()` abrufen.
+2. Die Frage anzeigen.
+3. Eine Benutzereingabe über `UserInputHandler.letUserGuess()` einlesen.
+4. Prüfen, ob der Benutzer das Spiel beenden möchte.
+5. Überprüfen, ob die Antwort richtig ist.
+6. Die Statistiken aktualisieren.
+7. Das Ergebnis ausgeben.
+
+Beispiel-Ausgabe:
+```
+Correct! 🤩
+```
+oder
+```
+Nope! 😶‍🌫 The correct answer was: Vienna
 ```
 
 ### Schritt 6: Hauptlogik
-Ziel: Mehrere Fragen hintereinander spielen und Steuerung des Programmflusses mit Schleifen.
+Ziel: Schleifen und Programmfluss steuern.
 
 Aufgabenstellung:
-* Schreiben Sie eine Schleife, die dem Benutzer nach jeder Runde eine neue Frage stellt.
-* Speichern Sie, wie viele Fragen gespielt und wie viele richtig beantwortet wurden.
-* Erlauben Sie dem Benutzer das Spiel durch das Wort „quit“ zu beenden.
-* Zeigen Sie nach Spielende die Gesamtanzahl und richtige Antworten an.
+* Verwenden Sie in der `main()`-Methode in der `QuizApp` Klasse eine Schleife, die solange läuft, bis das Spiel beendet wird. In jeder Runde soll die Methode `playRound()` aufgerufen werden.
+* Wenn das Spiel beendet wird, soll eine Statistik zum Endspielstand ausgegeben werden.
 
-
-### Schritt 7: Erweiterungsideen
-Ziel: Eigene Ideen umsetzen :-)
-
-Optionale Aufgaben:
-* Erlauben Sie die Auswahl von Schwierigkeitsstufen (`&difficulty=easy`, `&difficulty=medium`, `&difficulty=hard`).
-* Schreiben Sie eine Methode `htmlDecode(String s)`, die Sonderzeichen wie `&quot;`, `&#039;`, `&amp;`, `&lt;`, `&gt;` in normale Zeichen umwandelt.
+Beispiel-Ausgabe:
+```
+You won 7 out of 10 questions!
+```
