@@ -10,16 +10,10 @@ public class QuizApp {
         System.out.println("Quiz Game initiated successfully on level " + quiz.getDifficultyLevel() + " 🥳");
         Quiz.printRules();
 
-        while (true) {
-            Question f = quiz.getQuestion();
-            f.showQuestion();
-            quiz.handleUserGuess(f);
-
-            if (quiz.isQuit()) {
-                break;
-            }
+        while (!quiz.isQuit()) {
+            quiz.playRound();
         }
 
-        quiz.printStats();
+        quiz.printStatistics();
     }
 }

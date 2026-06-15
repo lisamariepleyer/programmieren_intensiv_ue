@@ -17,7 +17,7 @@ public class Question {
         this.shuffledAnswers = shuffleAnswers();
     }
 
-    public String[] shuffleAnswers(){
+    private String[] shuffleAnswers(){
         ArrayList<String> shuffledAnswers = new ArrayList<>(Arrays.asList(this.incorrectAnswers));
         shuffledAnswers.add(this.correctAnswer);
 
@@ -29,7 +29,7 @@ public class Question {
     public void showQuestion() {
         System.out.println(this.question);
 
-        for (int i = 0; i < shuffledAnswers.length; i++) {
+        for (int i = 0; i < getNumberOfAnswers(); i++) {
             System.out.println(i + 1 + ") "+ this.shuffledAnswers[i]);
         }
     }

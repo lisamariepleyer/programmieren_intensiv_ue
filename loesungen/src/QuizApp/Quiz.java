@@ -2,72 +2,66 @@ package QuizApp;
 
 public class Quiz {
     private int numberOfQuestions;
-    private int numberOfCorrectQuestions;
-    private boolean isQuit;
+    private int numberOfCorrectAnswers;
+    private boolean quit;
     private String difficultyLevel;
-    UserInputHandler inputHandler;
 
     public Quiz() {
-        numberOfQuestions = 0;
-        numberOfCorrectQuestions = 0;
-        inputHandler = new UserInputHandler();
-        difficultyLevel = inputHandler.chooseDifficultyLevel();
+        this.numberOfQuestions = 0;
+        this.numberOfCorrectAnswers = 0;
+        this.quit = false;
+        this.difficultyLevel = UserInputHandler.chooseDifficultyLevel();
     }
 
     public String getDifficultyLevel() {
-        return difficultyLevel;
+        return this.difficultyLevel;
     }
 
     public boolean isQuit() {
-        return isQuit;
+        return this.quit;
     }
 
-    public void setQuit() {
-        isQuit = true;
-    }
+    public void playRound() {
+        Question question = OpenTriviaDBHandler.getQuestion(getDifficultyLevel());
+        question.showQuestion();
 
-    public Question getQuestion() {
-        return OpenTriviaDBHandler.getQuestion(getDifficultyLevel());
-    }
-
-    public void handleUserGuess(Question q) {
-        int guess = UserInputHandler.letUserGuess(q.getNumberOfAnswers());
+        int guess = UserInputHandler.letUserGuess(question.getNumberOfAnswers());
 
         if (guess == -1) {
-            setQuit();
+            this.quit = true;
             return;
         }
 
-        boolean isCorrect = q.isGuessCorrect(guess);
-        handleQuestionCounter(isCorrect);
-        printQuestionResult(isCorrect, q);
+        boolean isCorrect = question.isGuessCorrect(guess);
+
+        updateStatistics(isCorrect);
+        printResult(isCorrect, question);
     }
 
-    private void handleQuestionCounter(boolean isAnswerCorrect) {
-        numberOfQuestions++;
-        if (isAnswerCorrect) {
-            numberOfCorrectQuestions++;
+    private void updateStatistics(boolean correct) {
+        this.numberOfQuestions++;
+        if (correct) {
+            this.numberOfCorrectAnswers++;
         }
     }
 
-    private void printQuestionResult(boolean isAnswerCorrect, Question q) {
-        if (isAnswerCorrect) {
+    private void printResult(boolean correct, Question question) {
+        if (correct) {
             System.out.println("Correct! 🤩");
         }
         else {
-            System.out.println("Nope! 😶‍🌫 The correct answer was: " + q.getCorrectAnswer());
+            System.out.println("Nope! 😶‍🌫 The correct answer was: " + question.getCorrectAnswer());
         }
+    }
+
+    public void printStatistics() {
+        System.out.println("You won " + this.numberOfCorrectAnswers + " out of " + this.numberOfQuestions + " questions!");
     }
 
     public static void printRules() {
         System.out.println("Rules:");
-        System.out.println("1️⃣ Enter the number of the correct answer.");
-        System.out.println("2️⃣ Enter 'quit' to end the game.");
-        System.out.println("3️⃣ Enter 'rules' to see the rules again.");
+        System.out.println("➡ Enter the number of the correct answer.");
+        System.out.println("➡ Enter 'quit' to end the game.");
         System.out.println();
-    }
-
-    public void printStats() {
-        System.out.println("You won " + numberOfCorrectQuestions + " out of " + numberOfQuestions + " questions!");
     }
 }
