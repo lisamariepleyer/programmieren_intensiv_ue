@@ -4,17 +4,17 @@ public class Quiz {
     private int numberOfQuestions;
     private int numberOfCorrectAnswers;
     private boolean quit;
-    private String difficultyLevel;
+    private final String DIFFICULTY_LEVEL;
 
     public Quiz() {
         this.numberOfQuestions = 0;
         this.numberOfCorrectAnswers = 0;
         this.quit = false;
-        this.difficultyLevel = UserInputHandler.chooseDifficultyLevel();
+        this.DIFFICULTY_LEVEL = UserInputHandler.chooseDifficultyLevel();
     }
 
     public String getDifficultyLevel() {
-        return this.difficultyLevel;
+        return this.DIFFICULTY_LEVEL;
     }
 
     public boolean isQuit() {

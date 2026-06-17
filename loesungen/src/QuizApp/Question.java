@@ -5,10 +5,10 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Question {
-    private final String question;
-    private final String correctAnswer;
-    private final String[] incorrectAnswers;
-    private final String[] shuffledAnswers;
+    private String question;
+    private String correctAnswer;
+    private String[] incorrectAnswers;
+    private String[] shuffledAnswers;
 
     public Question(String question, String correctAnswer, String[] incorrectAnswers){
         this.question = question;
